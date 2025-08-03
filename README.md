@@ -2,7 +2,7 @@
 
 A sophisticated and interactive chatbot agent designed to streamline the food ordering process. This bot, built with **Google Dialogflow** for Natural Language Understanding (NLU) and a powerful **FastAPI** backend, allows users to place, modify, and track their food orders seamlessly.
 
-![Python](https://img.shields.io/badge/Python-3.9%2B-blue.svg)
+![Python](https://img.shields.io/badge/Python-3.1%2B-blue.svg)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100%2B-green.svg)
 ![SQL](https://img.shields.io/badge/Database-SQL-orange.svg)
 ![Dialogflow](https://img.shields.io/badge/Dialogflow-ES-yellow.svg)
