@@ -24,13 +24,13 @@ This chatbot provides a complete and user-friendly food ordering experience with
 The project leverages a modern, high-performance tech stack to ensure a responsive and reliable user experience.
 
 * **Natural Language Understanding (NLU):** **Google Dialogflow** is used to design the conversational experience.
-    * **Intents:** Define the user's intention (e.g., `order.place`, `order.modify`, `order.track`).
+    * **Intents:** Define the user's intention (e.g., `order_add`, `order_complete`, `order_track`,`order_remove`).
     * **Entities:** Extract key information from user input (e.g., `food_item`, `quantity`, `order_id`).
     * **Contexts:** Manage the flow of conversation and maintain state.
 
 * **Backend Service:** **FastAPI**, a high-performance Python web framework, serves as the webhook fulfillment service. It handles all the business logic, database interactions, and response generation.
 
-* **Database:** A **SQL Database** (e.g., PostgreSQL, MySQL, or SQLite) is used for persistent data storage.
+* **Database:** A **SQL Database** MySQL is used for persistent data storage.
     * **`FoodItems` Table:** Stores menu item details and prices.
     * **`Orders` Table:** Stores the contents and details of each order.
     * **`OrderTracking` Table:** Maintains the real-time status of each order.
@@ -54,7 +54,7 @@ Follow these instructions to set up and run the project locally.
 
 ### Prerequisites
 
-* Python 3.9+
+* Python 3.1+
 * A Google Cloud Platform account with the Dialogflow API enabled
 * `ngrok` or a similar tool to expose your local server to the internet.
 
