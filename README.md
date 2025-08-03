@@ -62,8 +62,8 @@ Follow these instructions to set up and run the project locally.
 
 1.  **Clone the Repository**
     ```bash
-    git clone [https://github.com/your-username/food-chatbot.git](https://github.com/your-username/food-chatbot.git)
-    cd food-chatbot
+    git clone [https://github.com/hemanth18624/FoodChatBot.git](https://github.com/hemanth18624/FoodChatBot.git)
+    cd FoodChatBot
     ```
 
 2.  **Set Up a Virtual Environment**
