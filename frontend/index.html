@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HK Eatery - Menu</title>
+  <style>
+    :root {
+      --bg: #f9f9fb;
+      --card-bg: #ffffff;
+      --primary: #d35400;
+      --muted: #555;
+      --radius: 10px;
+      --shadow: 0 8px 24px rgba(0,0,0,0.08);
+      --transition: 0.3s ease;
+      font-family: system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: #2c2c2c;
+      line-height: 1.45;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f06529 0%, #ff9f43 100%);
+      padding: 1rem 1.5rem;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.5rem;
+    }
+
+    .logo {
+      font-size: 1.75rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin: 0;
+    }
+
+    .tagline {
+      font-size: 0.95rem;
+      margin: 0;
+      opacity: 0.9;
+    }
+
+    .menu-container {
+      flex: 1;
+      max-width: 1100px;
+      width: 100%;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    .intro {
+      text-align: center;
+      margin-bottom: 1.75rem;
+    }
+
+    .intro h1 {
+      margin: .3rem 0;
+      font-size: 2.4rem;
+    }
+
+    .intro p {
+      margin: .3rem 0;
+      color: var(--muted);
+    }
+
+    .grid {
+      display: grid;
+      gap: 1.75rem;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--radius);
+      padding: 1rem 1rem 1.25rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      transition: transform var(--transition), box-shadow var(--transition);
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.12);
+    }
+
+    .item-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 0.5rem;
+    }
+
+    .item-name {
+      font-size: 1.15rem;
+      font-weight: 600;
+    }
+
+    .item-price {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .item-desc {
+      font-size: 0.9rem;
+      margin: 0.35rem 0 0.75rem;
+      color: #444;
+      flex: 1;
+    }
+
+    /* Preferred image wrapper: cover fills and crops */
+    .image-wrapper {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #eef2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .image-wrapper img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Alternate if you want the whole image visible (no cropping) */
+    .image-wrapper-contain {
+      position: relative;
+      width: 100%;
+      height: 140px;
+      overflow: hidden;
+      border-radius: 8px;
+      background: #eef2f7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+
+    .image-wrapper-contain img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+
+    .cta {
+      margin-top: 1rem;
+      text-align: center;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      border-radius: 6px;
+      background: var(--primary);
+      color: white;
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      transition: filter var(--transition);
+    }
+
+    .btn:hover {
+      filter: brightness(1.1);
+    }
+
+    footer {
+      background: #1f2733;
+      color: #d1d7e0;
+      padding: 1.25rem 1.5rem;
+      text-align: center;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    .footer-links {
+      margin: 0.5rem 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      font-size: 0.85rem;
+    }
+
+    .footer-links a {
+      color: #aab8d3;
+      text-decoration: none;
+    }
+
+    .small {
+      font-size: 0.75rem;
+      color: #999;
+    }
+
+    @media (max-width: 800px) {
+      .intro h1 {
+        font-size: 2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div>
+      <h1 class="logo">HK Eatery</h1>
+      <p class="tagline">Taste that builds confidence. Eat with joy.</p>
+    </div>
+    <div>
+      <!-- Future nav/buttons can go here -->
+      <a href="#" class="btn" style="font-size:0.9rem; padding:0.55rem 1rem;">Order Now</a>
+    </div>
+  </header>
+
+  <main class="menu-container">
+    <div class="intro">
+      <h1>Our Special Menu</h1>
+      <p>Handpicked flavors, crafted with care. Enjoy classic favorites and bold tastes.</p>
+    </div>
+
+    <div class="grid">
+      <!-- Pav Bhaji -->
+      <div class="card">
+        <div class="image-wrapper">
+          <!-- Replace src with your image path -->
+          <img src="./images/pav_bhaji.jpg" alt="Pav Bhaji" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Pav Bhaji</div>
+          <div class="item-price">$6</div>
+        </div>
+        <p class="item-desc">Rich, buttery vegetable mash served with toasted buns. A beloved street-food classic.</p>
+      </div>
+
+      <!-- Chole Bhature -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/chole_bhature.jpg" alt="Chole Bhature" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Chole Bhature</div>
+          <div class="item-price">$7</div>
+        </div>
+        <p class="item-desc">Spiced chickpeas paired with fluffy fried bread—hearty and satisfying.</p>
+      </div>
+
+      <!-- Pizza -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/pizza.jpeg" alt="Pizza" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Pizza</div>
+          <div class="item-price">$8</div>
+        </div>
+        <p class="item-desc">Oven-baked goodness with customizable toppings—cheesy, crisp, and warm.</p>
+      </div>
+
+      <!-- Mango Lassi -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/mango_lassi.jpeg" alt="Mango Lassi" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Mango Lassi</div>
+          <div class="item-price">$5</div>
+        </div>
+        <p class="item-desc">Creamy mango yogurt drink—refreshing and natural sweetness in every sip.</p>
+      </div>
+
+      <!-- Masala Dosa -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/masala_dosa.jpg" alt="Masala Dosa" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Masala Dosa</div>
+          <div class="item-price">$6</div>
+        </div>
+        <p class="item-desc">Crispy rice crepe filled with spiced potato, served with chutneys and sambar.</p>
+      </div>
+
+      <!-- Vegetable Biryani -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/vegetable_biryani.jpg" alt="Vegetable Biryani" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Vegetable Biryani</div>
+          <div class="item-price">$9</div>
+        </div>
+        <p class="item-desc">Aromatic basmati rice layered with vegetables and fragrant spices.</p>
+      </div>
+
+      <!-- Vada Pav -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/vada_pav.jpg" alt="Vada Pav" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Vada Pav</div>
+          <div class="item-price">$4</div>
+        </div>
+        <p class="item-desc">Spicy potato fritter sandwiched in a bun—Mumbai’s beloved snack.</p>
+      </div>
+
+      <!-- Rava Dosa -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/rava_dosa.jpg" alt="Rava Dosa" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Rava Dosa</div>
+          <div class="item-price">$7</div>
+        </div>
+        <p class="item-desc">Crispy semolina crepe with subtle spice, served with chutney.</p>
+      </div>
+
+      <!-- Samosa -->
+      <div class="card">
+        <div class="image-wrapper">
+          <img src="./images/samosa.webp" alt="Samosa" />
+        </div>
+        <div class="item-header">
+          <div class="item-name">Samosa</div>
+          <div class="item-price">$5</div>
+        </div>
+        <p class="item-desc">Golden-fried pastry filled with savory spiced potatoes and peas.</p>
+      </div>
+    </div>
+
+    <div class="cta">
+      <a href="#" class="btn">Explore More</a>
+    </div>
+  </main>
+
+  <footer>
+    <div>
+      <p><strong>HK Eatery</strong> – Where flavor meets confidence.</p>
+      <div class="footer-links">
+        <a href="#">Home</a>
+        <a href="#">Menu</a>
+        <a href="#">Contact</a>
+        <a href="#">About</a>
+      </div>
+      <p class="small">&copy; 2025 HK Eatery. All rights reserved.</p>
+    </div>
+  </footer>
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+<df-messenger
+  chat-title="food-chatbot"
+  agent-id="5fce0605-5e1f-4d16-86cd-7c08dab28409"
+  language-code="en"
+></df-messenger>
+</body>
+</html>
