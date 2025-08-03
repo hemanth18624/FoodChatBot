@@ -48,6 +48,12 @@ The interaction flow is designed for efficiency and real-time feedback.
 
 ---
 
+## Demo
+
+https://youtu.be/VVB-A4lfVFA?si=fjPMcOC9OCiZY9Mz
+https://youtu.be/OqSZzACJQj0?si=SVCkCR1PTNafEbjJ
+https://youtu.be/Qp5JMR0htXU?si=m286igwWMLv4yicj
+
 ## 🚀 Getting Started
 
 Follow these instructions to set up and run the project locally.
