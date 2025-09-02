@@ -16,16 +16,10 @@ async def handle_request(request:Request):
     intent = payload['queryResult']['intent']['displayName']
     parameters = payload['queryResult']['parameters']
     output_contexts = payload['queryResult']['outputContexts']
-    print("**********")
     print(output_contexts[0]['name'])
     session_id = generic_helper.extract_session_id(output_contexts[0]['name'])
 
-    #intent_handler_dict = {
-    #     'order_add' : add_to_order,
-    #     'order_remove':remove_from_order,
-    #     'order_complete':complete_order,
-    #     'track_order_with_number':track_order
-    # }
+
 
     if intent == "track_order_with_number":
         return track_order(parameters,session_id)
